@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>bg_sound.mp3</file>
+        <file>bullet_sound.mp3</file>
+    </qresource>
+    <qresource prefix="/pics">
+        <file>background.png</file>
+        <file>bullet.png</file>
+        <file>first_level.png</file>
+        <file>myship.png</file>
+        <file>second_level.png</file>
+        <file>third_level.png</file>
+    </qresource>
+</RCC>
