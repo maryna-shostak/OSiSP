@@ -24,7 +24,7 @@ void Bullet::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
 
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
-    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+    /*for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Enemy)){
             // increase the score
 
@@ -41,7 +41,7 @@ void Bullet::move(){
             // return (all code below refers to a non existint bullet)
             return;
         }
-    }
+    }*/
 
     // if there was no collision with an Enemy, move the bullet forward
     setPos(x(),y()-10);
