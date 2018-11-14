@@ -1,11 +1,12 @@
 #include "Score.h"
+#include "Game.h"
 #include <QFont>
 
+extern Game * game;
+
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
-    // initialize the score to 0
     score = 0;
 
-    // draw the text
     setPlainText(QString("Score: ") + QString::number(score)); // Score: 0
     setDefaultTextColor(Qt::blue);
     setFont(QFont("times",16));
@@ -13,7 +14,10 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
 
 void Score::increase(){
     score++;
-    setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
+    if (score==50) {        
+        game->GameOver(true);
+        return;
+    } else setPlainText(QString("Score: ") + QString::number(score)); // Health: 2
 }
 
 int Score::getScore(){

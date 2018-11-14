@@ -10,7 +10,7 @@ extern Game * game;
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     //set random x position
-    int random_number = rand() % 700;
+    int random_number = rand() % 500;
     setPos(random_number,0);
     SetLevel();
     // drew the rect
@@ -36,6 +36,7 @@ void Enemy::SetLevel()
         health = 1;
         setPixmap(QPixmap(":/pics/first_level.png"));
     }
+
 }
 
 void Enemy::HealthDecrease()
@@ -86,3 +87,4 @@ void Enemy::move(){
         delete this;
     }
 }
+

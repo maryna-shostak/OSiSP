@@ -6,21 +6,21 @@
 #include <QImage>
 #include "Enemy.h"
 
-Game::Game(QWidget *parent){
-    // create the scene
+Game::Game(QWidget *parent) {
+
+}
+
+void Game::start()
+{
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,600,600);
     setBackgroundBrush(QBrush(QImage(":/pics/background.png")));
-    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
-    // it can be used to visualize scenes)
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
-
-    // create the player
+    setFixedSize(600,600);
     player = new Player();
-    player->setPos(400,500); // TODO generalize to always be in the middle bottom of screen
+    player->setPos(270,550); // TODO generalize to always be in the middle bottom of screen
     // make the player focusable and set it to be the current focus
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -38,8 +38,14 @@ Game::Game(QWidget *parent){
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
-
-
-
     show();
+}
+
+
+void Game::GameOver(bool bl){
+    if (bl)
+        emit WinSignal();
+    else
+        emit LoseSignal();
+    this->close();
 }

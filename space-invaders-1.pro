@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-10-03T21:25:01
+# Project created by QtCreator 2018-11-12T17:40:59
 #
 #-------------------------------------------------
 
@@ -8,8 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
-TARGET = mygame
+TARGET = space-invaders-1
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,22 +25,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
+        mainwindow.cpp \
     Bullet.cpp \
     enemy.cpp \
     Game.cpp \
     Health.cpp \
     Player.cpp \
-    Score.cpp
-
+    Score.cpp \
+    startmenu.cpp
 
 HEADERS += \
+        mainwindow.h \
     Bullet.h \
     enemy.h \
     Game.h \
     Health.h \
     Player.h \
-    Score.h
+    Score.h \
+    startmenu.h
+
+FORMS += \
+        mainwindow.ui
 
 RESOURCES += \
     rsc.qrc
-
